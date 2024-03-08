@@ -64,7 +64,10 @@ $("#search-button").on("click", function (event) {
               "</h1>"
           );
 
-          $("#today").append("<p>Temp:" + data.main.temp + "</p>");
+          var tempToday = Math.round(data.main.temp - 273.15);
+          
+
+          $("#today").append("<p>Temp:" + tempToday + "</p>");
           $("#today").append("<p>Wind:" + data.wind.speed + "</p>");
           $("#today").append("<p>Humidity:" + data.main.humidity + "</p>");
 
@@ -96,32 +99,34 @@ $("#search-button").on("click", function (event) {
           const date = dt_txt.split(" ")[0].replace(/-/g, "/");
           const revDate = reverseDate(date); 
           const temp = main.temp;
-          const celcius = temp - 273.15;
+          const celcius = Math.round(temp - 273.15);
           const iconCode = weather[0].icon;
           const iconUrl =
             "https://openweathermap.org/img/w/" + iconCode + ".png";
+
+          
 
           var cardHtml =
             "<div class='card'>" +
             "<div class='card-body'>" +
             "<h5 class='card-title'>" +
             "Date" +
-            revDate + // Use revDate instead of data.dt
+            revDate + 
             "<img src='" +
             iconUrl +
             "'>" +
             "</h5>" +
             "<p class='card-text'>" +
             "Temp" +
-            celcius + // Use celcius instead of data.main.temp
+            celcius + 
             "</p>" +
             "<p class='card-text'>" +
             "Wind" +
-            wind.speed + // Use wind.speed instead of data.wind.speed
+            wind.speed + 
             "</p>" +
             "<p class='card-text'>" +
             "Humidity" +
-            main.humidity + // Use main.humidity instead of data.main.humidity
+            main.humidity +
             "</p>" +
             "</div>" +
             "</div>";
