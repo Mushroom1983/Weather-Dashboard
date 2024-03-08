@@ -24,3 +24,7 @@ SO THAT I can plan a trip accordingly
 A wether app that uses API to find out current weather and create a 5 day forecast which stores to local storage.
 
 ![alt text](image.png)
+
+Deployment link
+
+https://mushroom1983.github.io/Weather-Dashboard/
